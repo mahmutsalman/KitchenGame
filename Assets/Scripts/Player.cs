@@ -2,26 +2,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float stepSize = 1f;
+    public float moveSpeed = 7f;
+    public float rotateSpeed = 10f;
 
     private void Update()
     {
-        Vector2 moveDir = new Vector2(0, 0);
+        Vector2 inputVector = new Vector2(0, 0);
 
-        if (Input.GetKeyDown(KeyCode.W)) moveDir.y = +1;
-        if (Input.GetKeyDown(KeyCode.S)) moveDir.y = -1;
-        if (Input.GetKeyDown(KeyCode.A)) moveDir.x = -1;
-        if (Input.GetKeyDown(KeyCode.D)) moveDir.x = +1;
+        if (Input.GetKey(KeyCode.W)) inputVector.y = +1;
+        if (Input.GetKey(KeyCode.S)) inputVector.y = -1;
+        if (Input.GetKey(KeyCode.A)) inputVector.x = -1;
+        if (Input.GetKey(KeyCode.D)) inputVector.x = +1;
 
-        Vector3 moveDir3 = new Vector3(moveDir.x, 0f, moveDir.y);
-        transform.position += moveDir3 * stepSize;
+        inputVector = inputVector.normalized;
 
-        if (moveDir3 != Vector3.zero) {
-            float rotateSpeed = 10f;
-            transform.forward = Vector3.Slerp(transform.forward, moveDir3, Time.deltaTime * rotateSpeed);
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        transform.position += moveDir * moveSpeed * Time.deltaTime;
+
+        if (moveDir != Vector3.zero) {
+            transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
         }
-
-        Debug.Log(moveDir3);
     }
-    
 }
