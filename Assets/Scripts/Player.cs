@@ -11,8 +11,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A)) moveDir.x = -1;
         if (Input.GetKeyDown(KeyCode.D)) moveDir.x = +1;
 
-        transform.position += (Vector3)moveDir;
-        Debug.Log(transform.position);
+        Vector3 moveDir3 = new Vector3(moveDir.x, 0f, moveDir.y);
+        transform.position += moveDir3;
+        Debug.Log(moveDir3);
     }
     
 }
