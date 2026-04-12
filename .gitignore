@@ -1,0 +1,41 @@
+# Unity generated
+/Library/
+/Temp/
+/Logs/
+/obj/
+/Build/
+/Builds/
+
+# Unity cache files
+*.pidb
+*.suo
+*.userprefs
+*.unityproj
+*.booproj
+
+# IDE generated
+/.vscode/
+/.idea/
+/Assembly-CSharp.csproj
+/Assembly-CSharp-Editor.csproj
+*.csproj
+*.sln
+*.slnx
+
+# User-specific settings
+/UserSettings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Compiled binaries
+*.apk
+*.aab
+*.exe
+*.x86
+*.x86_64
+*.app
+
+# Crash reports
+/crashlytics-build.properties
