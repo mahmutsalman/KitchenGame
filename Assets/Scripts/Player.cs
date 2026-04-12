@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public float stepSize = 1f;
+
     private void Update()
     {
         Vector2 moveDir = new Vector2(0, 0);
@@ -12,7 +14,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D)) moveDir.x = +1;
 
         Vector3 moveDir3 = new Vector3(moveDir.x, 0f, moveDir.y);
-        transform.position += moveDir3;
+        transform.position += moveDir3 * stepSize;
         Debug.Log(moveDir3);
     }
     
