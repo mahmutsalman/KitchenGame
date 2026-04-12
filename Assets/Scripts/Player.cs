@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Update()
     {
-        
-    }
+        Vector2 moveDir = new Vector2(0, 0);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Input.GetKeyDown(KeyCode.W)) moveDir.y = +1;
+        if (Input.GetKeyDown(KeyCode.S)) moveDir.y = -1;
+        if (Input.GetKeyDown(KeyCode.A)) moveDir.x = -1;
+        if (Input.GetKeyDown(KeyCode.D)) moveDir.x = +1;
+
+        transform.position += (Vector3)moveDir;
+        Debug.Log(transform.position);
     }
+    
 }
