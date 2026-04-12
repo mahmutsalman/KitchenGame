@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
 
         Vector3 moveDir3 = new Vector3(moveDir.x, 0f, moveDir.y);
         transform.position += moveDir3 * stepSize;
+
+        if (moveDir3 != Vector3.zero) {
+            transform.forward = moveDir3;
+        }
+
         Debug.Log(moveDir3);
     }
     
