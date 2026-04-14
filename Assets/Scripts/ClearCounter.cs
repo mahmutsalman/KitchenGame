@@ -5,12 +5,14 @@ public class ClearCounter : MonoBehaviour
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
     [SerializeField] private Transform counterTopPoint;
 
-    public void Interact() {
-        Debug.Log("Interact!");
-        Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
-        kitchenObjectTransform.localPosition = Vector3.zero;
+    private KitchenObject kitchenObject;
 
-        KitchenObjectSO spawnedSO = kitchenObjectTransform.GetComponent<KitchenObject>().GetKitchenObjectSO();
-        Debug.Log("Spawned: " + spawnedSO.objectName);
+    public void Interact() {
+        if (kitchenObject == null) {
+            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
+            kitchenObjectTransform.localPosition = Vector3.zero;
+
+            kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
+        }
     }
 }
