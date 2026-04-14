@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11459d3be89e45a8b4827bb22213908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
+  clearCounter: {fileID: 4870558743520340102}
+  visualGameObject: {fileID: 5264832219114018471}
 --- !u!1 &5264832219114018471
 GameObject:
   m_ObjectHideFlags: 0

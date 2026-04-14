@@ -1,7 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    public class OnSelectedCounterChangedEventArgs : EventArgs {
+        public ClearCounter selectedCounter;
+    }
+
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
 
@@ -10,6 +18,13 @@ public class Player : MonoBehaviour
     private bool isWalking;
     private Vector3 lastInteractDir;
     private ClearCounter selectedCounter;
+
+    private void Awake() {
+        if (Instance != null) {
+            Debug.LogError("There is more than one Player instance");
+        }
+        Instance = this;
+    }
 
     private void Start() {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
@@ -41,13 +56,13 @@ public class Player : MonoBehaviour
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)) {
                 // Has ClearCounter
                 if (clearCounter != selectedCounter) {
-                    selectedCounter = clearCounter;
+                    SetSelectedCounter(clearCounter);
                 }
             } else {
-                selectedCounter = null;
+                SetSelectedCounter(null);
             }
         } else {
-            selectedCounter = null;
+            SetSelectedCounter(null);
         }
 
         Debug.Log(selectedCounter);
@@ -90,6 +105,14 @@ public class Player : MonoBehaviour
 
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+    }
+
+    private void SetSelectedCounter(ClearCounter selectedCounter) {
+        this.selectedCounter = selectedCounter;
+
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
+            selectedCounter = selectedCounter
+        });
     }
 
     public bool IsWalking() {
