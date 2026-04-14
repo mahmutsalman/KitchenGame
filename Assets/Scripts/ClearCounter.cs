@@ -18,6 +18,10 @@ public class ClearCounter : MonoBehaviour
         }
     }
 
+    public Transform GetKitchenObjectFollowTransform() {
+        return counterTopPoint;
+    }
+
     public void Interact() {
         if (kitchenObject == null) {
             Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
