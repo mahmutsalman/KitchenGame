@@ -42,7 +42,8 @@ public class ClearCounter : MonoBehaviour, IKitchenObjectParent
             Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
             kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
         } else {
-            Debug.Log(kitchenObject.GetKitchenObjectParent());
+            // Give the object to the player
+            kitchenObject.SetKitchenObjectParent(player);
         }
     }
 }
