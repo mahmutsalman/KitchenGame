@@ -37,7 +37,7 @@ public class ClearCounter : MonoBehaviour
         return kitchenObject != null;
     }
 
-    public void Interact() {
+    public void Interact(Player player) {
         if (kitchenObject == null) {
             Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
             kitchenObjectTransform.GetComponent<KitchenObject>().SetClearCounter(this);
