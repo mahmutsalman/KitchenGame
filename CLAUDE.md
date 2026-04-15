@@ -37,6 +37,30 @@ git checkout main            # come back to present, all changes discarded
 Library/ is excluded from git on purpose — Unity rebuilds it from Assets/ and
 ProjectSettings/ every time. Checking out an old commit fully restores the game.
 
+### .meta files rule
+Unity uses `.meta` files to track GUIDs — the internal links between assets.
+Breaking this rule causes missing references when the project is opened elsewhere.
+
+- **New file added** → always stage both the file AND its `.meta`
+- **Existing file modified** → `.meta` is already tracked, nothing extra needed
+- **File deleted** → delete both the file AND its `.meta`
+- **New folder** → stage the `FolderName.meta` too
+
+Examples:
+```bash
+# Adding a new script
+git add Assets/Scripts/Player.cs Assets/Scripts/Player.cs.meta
+
+# Adding a new prefab
+git add Assets/Prefabs/Tomato.prefab Assets/Prefabs/Tomato.prefab.meta
+
+# Modifying an existing scene — .meta already in git, skip it
+git add Assets/Scenes/GameScene.unity
+```
+
+GameObjects created *inside* a scene (e.g. an empty child Transform) are baked
+into the `.unity` file — they are not separate files and need no `.meta`.
+
 ### What belongs in each commit type
 - **Import commits** — new asset folders, third-party packages, art drops
 - **Script commits** — C# scripts, ScriptableObject definitions, logic changes
