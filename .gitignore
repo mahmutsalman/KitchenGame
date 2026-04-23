@@ -45,3 +45,6 @@ Thumbs.db
 
 # Crash reports
 /crashlytics-build.properties
+
+# CodeMonkey plugin auto-update cache (changes on its own, not project code)
+Assets/CodeMonkeyFree/Editor/ScriptableObjects/CodeMonkeyFreeSO.asset
