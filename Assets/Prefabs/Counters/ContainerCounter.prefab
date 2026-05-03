@@ -129,11 +129,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff98de278a05146b28edca60fed7411f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContainerCounter
-  counterTopPoint: {fileID: 0}
+  counterTopPoint: {fileID: 9047344085290394190}
   kitchenObjectSO: {fileID: 11400000, guid: faef6fb46b43347f49c4dcbdc1526a05, type: 2}
 --- !u!4 &4238129855941803562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2025351295239329530, guid: cc68efc55006c4d3799c47fe94ea4f78, type: 3}
+  m_PrefabInstance: {fileID: 2795507091928606928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9047344085290394190 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6576730318488357534, guid: cc68efc55006c4d3799c47fe94ea4f78, type: 3}
   m_PrefabInstance: {fileID: 2795507091928606928}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3690261986793801322
