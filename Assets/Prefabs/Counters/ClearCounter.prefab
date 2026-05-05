@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
   baseCounter: {fileID: 4870558743520340102}
-  visualGameObject: {fileID: 2804267531409668339}
+  visualGameObjectArray:
+  - {fileID: 2804267531409668339}
 --- !u!1 &2804267531409668339
 GameObject:
   m_ObjectHideFlags: 0
