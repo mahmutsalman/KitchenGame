@@ -10,6 +10,9 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent {
         Debug.LogError("BaseCounter.Interact() should be overridden!");
     }
 
+    public virtual void InteractAlternate(Player player) {
+    }
+
     public Transform GetKitchenObjectFollowTransform() => counterTopPoint;
     public void SetKitchenObject(KitchenObject ko) { kitchenObject = ko; }
     public KitchenObject GetKitchenObject() => kitchenObject;
