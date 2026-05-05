@@ -66,3 +66,14 @@ into the `.unity` file — they are not separate files and need no `.meta`.
 - **Script commits** — C# scripts, ScriptableObject definitions, logic changes
 - **Scene commits** — scene layout changes, prefab wiring, hierarchy edits
 - **Settings commits** — ProjectSettings changes, input maps, quality/physics tweaks
+
+## Memory Management
+
+When you discover something valuable for future sessions —
+architectural decisions, bug fixes, gotchas, environment quirks —
+immediately append it to .claude/memory.md
+
+Don't wait to be asked. Don't wait for session end.
+
+Keep entries short: date, what, why. Read this file at the start
+of every session.
